@@ -25,7 +25,6 @@ jobs:
       - name: View Windows version
         run: |
           Write-Output "Windows Version:"
-          ver
       - name: Error Step
         run: doesnotexist
           
