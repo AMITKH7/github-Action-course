@@ -11,4 +11,21 @@ jobs:
          run: |
            node -v
            npm -v
+  parallel-job-macros:
+    runs-on: macos-latest
+    steps:
+      - name: View SW version
+        run: sw_vers
+      - name: View system info
+        run: system_profiler SPSoftwareDataType
+  dependant-job-windows:
+    runs-on: windows-latest
+    needs: run-shell-commands
+    steps:
+      - name: View Windows version
+        run: |
+          Write-Output "Windows Version:"
+          ver
+      - name: Error Step
+        run: does-not-exist
           
