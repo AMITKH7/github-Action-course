@@ -26,5 +26,5 @@ jobs:
         run: |
           Write-Output "Windows Version:"
       - name: Error Step
-        run: doesnotexist
+        run: does-not-exist
           
