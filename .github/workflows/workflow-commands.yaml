@@ -5,4 +5,242 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setting Error Message
-        run: echo "::error::Missing semicolon"
+        run: echo "::error title=Error title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Missing Semicolon"
+      - name: Setting Warning Message
+        run: echo "::warning title=Warning title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Deprecated function"
+      - name: Setting Notice Message
+        run: echo "::notice title=Notice title,file=app.js,line=2,endLine=3,col=5,endColumn=7::This is a notice message"
+      - name: Setting Debug Message
+        run: echo "::debug title=Debug title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Debugging information"
+      - name: Setting Custom Message
+        run: echo "::custom title=Custom title,file=app.js,line=2,endLine=3,col=5,endColumn=7::This is a custom message"
+      - name: Setting Step Summary
+        run: echo "This is the step summary" >> $GITHUB_STEP_SUMMARY
+      - name: Setting Output
+        run: echo "output=This is the output" >> $GITHUB_OUTPUT
+      - name: Setting Environment Variable
+        run: echo "MY_ENV_VAR=This is an environment variable" >> $GITHUB_ENV
+      - name: Setting Issue
+        run: echo "::issue::This is an issue message"
+      - name: Setting Pull Request
+        run: echo "::pr::This is a pull request message"
+      - name: Setting Label
+        run: echo "::label::This is a label message"
+      - name: Setting Command
+        run: echo "::command::This is a command message"
+      - name: Setting Command with Arguments
+        run: echo "::command arg1=val1,arg2=val2::This is a command with arguments"
+      - name: Setting Command with Multiple Arguments
+        run: echo "::command arg1=val1,arg2=val2,arg3=val3::This is a command with multiple arguments"
+      - name: Setting Command with Special Characters
+        run: echo "::command arg1='value with spaces',arg2='value with special characters !@#$%^&*()'::This is a command with special characters"
+      - name: Setting Command with Newline
+        run: echo "::command arg1='value with newline',arg2='value with newline'::This is a command with newline\ncharacter"
+      - name: Setting Command with Multiple Lines
+        run: |
+          echo "::command arg1='value with multiple lines',arg2='value with multiple lines'::This is a command with multiple lines
+          that spans multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline
+        run: |
+          echo "::command arg1='value with multiple arguments and newline',arg2='value with multiple arguments and newline'::This is a command with multiple arguments and newline
+          character"
+      - name: Setting Command with Multiple Arguments and Special Characters
+        run: |
+          echo "::command arg1='value with multiple arguments and special characters !@#$%^&*()',arg2='value with multiple arguments and special characters !@#$%^&*()'::This is a command with multiple arguments and special characters !@#$%^&*()"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*()',arg2='value with multiple arguments and newline and special characters !@#$%^&*()'::This is a command with multiple arguments and newline and special characters !@#$%^&*()
+          that spans multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines
+          that spans multiple lines
+          and has multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          and has multiple lines
+          and has spaces"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters           
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*()',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*()'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*()
+          that spans multiple lines
+          and has multiple lines
+          and has spaces
+          and has special characters !@#$%^&*()"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines
+          that spans multiple lines
+          and has multiple lines
+          and has spaces
+          and has special characters !@#$%^&*()
+          that spans multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          and has multiple lines
+          and has spaces
+          and has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*()',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces        
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces"
+      - name: Setting Command with Multiple Arguments and Newline and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces and Special Characters and Multiple Lines and Spaces        
+        run: |
+          echo "::command arg1='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces',arg2='value with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces'::This is a command with multiple arguments and newline and special characters !@#$%^&*() and multiple lines and spaces and special characters !@#$%^&*() and multiple lines and spaces
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines
+          that has spaces
+          that has special characters !@#$%^&*()
+          that spans multiple lines
+          that has multiple lines"
+    
