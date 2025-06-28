@@ -1,0 +1,29 @@
+name: Working Directory Shell Discover
+on: [push]
+
+jobs:
+  discover-working-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Working Directory and print files
+        run: |
+          pwd
+      - name: List Files
+        run:  |
+         ls -la
+         echo $GITHUB_SHA
+         echo $GITHUB_REPOSITORY
+         echo $GITHUB_WORKSPACE
+  discover-working-dir-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Display Working Directory and print files
+        run: |
+          pwd
+      - name: List Files
+        run:  |
+         ls -la
+         echo $GITHUB_SHA
+         echo $GITHUB_REPOSITORY
+         echo $GITHUB_WORKSPACE
+                
