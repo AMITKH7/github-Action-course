@@ -10,7 +10,7 @@ jobs:
           pwd
       - name: List Files
         run:  |
-         ls -la
+         ls -a
          echo $GITHUB_SHA
          echo $GITHUB_REPOSITORY
          echo $GITHUB_WORKSPACE
@@ -19,11 +19,11 @@ jobs:
     steps:
       - name: Display Working Directory and print files
         run: |
-          pwd
+         Get-Location
       - name: List Files
         run:  |
-         ls -l
-         echo $GITHUB_SHA
-         echo $GITHUB_REPOSITORY
-         echo $GITHUB_WORKSPACE
+         dir
+         echo $env:GITHUB_SHA
+         echo $env:GITHUB_REPOSITORY
+         echo $env:GITHUB_WORKSPACE
                 
